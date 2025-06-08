@@ -2,7 +2,6 @@
 //  SoleggApp.swift
 //  Solegg
 //
-//  Created by Ernesto Garza Berrueto on 07/06/25.
 //
 
 import SwiftUI

@@ -2,7 +2,6 @@
 //  DailyGoal.swift
 //  Solegg
 //
-//  Created by Alexa Nohemi Lara Carvajal on 07/06/25.
 //
 import SwiftUI
 
