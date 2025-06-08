@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9425B0502DF54FBA00810091 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9425B04F2DF54FBA00810091 /* Config.xcconfig */; };
+		9425B0572DF57FC100810091 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9425B0562DF57FBC00810091 /* .gitignore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		9425B0202DF5018E00810091 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,11 +32,26 @@
 		9425B00D2DF5018800810091 /* Solegg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Solegg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9425B01F2DF5018E00810091 /* SoleggTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoleggTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9425B0292DF5018E00810091 /* SoleggUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoleggUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9425B04F2DF54FBA00810091 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		9425B0562DF57FBC00810091 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9425B0522DF5517E00810091 /* Exceptions for "Solegg" folder in "Solegg" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9425B00C2DF5018800810091 /* Solegg */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9425B00F2DF5018800810091 /* Solegg */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9425B0522DF5517E00810091 /* Exceptions for "Solegg" folder in "Solegg" target */,
+			);
 			path = Solegg;
 			sourceTree = "<group>";
 		};
@@ -75,6 +95,8 @@
 		9425B0042DF5018800810091 = {
 			isa = PBXGroup;
 			children = (
+				9425B0562DF57FBC00810091 /* .gitignore */,
+				9425B04F2DF54FBA00810091 /* Config.xcconfig */,
 				9425B00F2DF5018800810091 /* Solegg */,
 				9425B0222DF5018E00810091 /* SoleggTests */,
 				9425B02C2DF5018E00810091 /* SoleggUITests */,
@@ -212,6 +234,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9425B0502DF54FBA00810091 /* Config.xcconfig in Resources */,
+				9425B0572DF57FC100810091 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +295,7 @@
 /* Begin XCBuildConfiguration section */
 		9425B0312DF5018E00810091 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9425B04F2DF54FBA00810091 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -334,6 +359,7 @@
 		};
 		9425B0322DF5018E00810091 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9425B04F2DF54FBA00810091 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -390,15 +416,21 @@
 		};
 		9425B0342DF5018E00810091 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9425B04F2DF54FBA00810091 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K54B4PBMJC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Solegg/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need it";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "weather stuff";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = dangit;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -410,7 +442,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "snoopy-theswifties.Solegg";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.snoopy-theswifties.Solegg";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -421,15 +454,21 @@
 		};
 		9425B0352DF5018E00810091 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9425B04F2DF54FBA00810091 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K54B4PBMJC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Solegg/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need it";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "weather stuff";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = dangit;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -441,7 +480,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "snoopy-theswifties.Solegg";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.snoopy-theswifties.Solegg";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -452,6 +492,7 @@
 		};
 		9425B0372DF5018E00810091 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9425B04F2DF54FBA00810091 /* Config.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -470,6 +511,7 @@
 		};
 		9425B0382DF5018E00810091 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9425B04F2DF54FBA00810091 /* Config.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -488,6 +530,7 @@
 		};
 		9425B03A2DF5018E00810091 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9425B04F2DF54FBA00810091 /* Config.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -504,6 +547,7 @@
 		};
 		9425B03B2DF5018E00810091 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9425B04F2DF54FBA00810091 /* Config.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
