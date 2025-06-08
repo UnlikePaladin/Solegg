@@ -5,26 +5,28 @@
 //
 import SwiftUI
 
+
 struct DailyGoal: View {
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
+    @State var expDaily = Int()
     @ObservedObject var viewModel : Steps
     var body: some View {
         ScrollView{
             VStack(spacing:60){
                 Spacer()
+                Text ("Daily challenge").font(.title).bold()
                 ForEach($viewModel.goals.enumerated().map { $0 }, id: \.1.id) { index, $goal in
                     HStack {
-                        if index % 2 == 0 {
-                            Spacer(minLength: 30)
+                        Spacer(minLength: 20)
+                        if index % 2 == 1 {
                             Bubble(goal: $viewModel.goals[index])
-
-                                .frame(maxWidth: UIScreen.main.bounds.width * 0.6, alignment: .leading)
-                            Spacer()
+                                .frame(maxWidth: UIScreen.main.bounds.width * 0.3, alignment: .trailing)
+                            Spacer(minLength: 30)
                         } else {
-                            Spacer()
-                            Bubble(goal: $viewModel.goals[index])
-                                .frame(maxWidth: UIScreen.main.bounds.width * 0.6, alignment: .trailing)
                             Spacer(minLength: 30)
+                            Bubble(goal: $viewModel.goals[index]).frame(maxWidth: UIScreen.main.bounds.width * 0.3, alignment: .trailing)
                         }
+                        Spacer()
                     }
                 }
                 

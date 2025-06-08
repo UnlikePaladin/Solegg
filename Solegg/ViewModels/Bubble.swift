@@ -17,9 +17,8 @@ struct Bubble: View {
             }) {
                 VStack {
                     Image(systemName: goal.content.imageName)
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                        .padding()
+                        .resizable().aspectRatio(contentMode: .fit)
+                        .padding(CGFloat(20))
                         .background(goal.state ? Color.green : Color.blue.opacity(0.3))
                         .clipShape(Circle())
                         .foregroundColor(.primary)

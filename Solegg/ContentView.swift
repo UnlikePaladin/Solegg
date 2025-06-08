@@ -12,6 +12,11 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
+            DailyGoal(viewModel: Steps())
+                .tabItem{
+                    Label("DailyGoal", systemImage:"play.fill")
+                }
+    
             LandingView()
                 .tabItem{
                     Label("Home", systemImage:"house.fill")
@@ -19,6 +24,10 @@ struct ContentView: View {
             MapView(viewModel: viewModel)
                 .tabItem{
                     Label("Map View", systemImage: "map.fill")
+                }
+            ChatView()
+                .tabItem{
+                    Label("Chat View", systemImage: "bubble.fill")
                 }
         }.onAppear() {
             CLLocationManager().requestAlwaysAuthorization()
