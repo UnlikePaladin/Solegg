@@ -2,7 +2,6 @@
 //  MapViewComponent.swift
 //  Solegg
 //
-//  Created by Ernesto Garza Berrueto on 07/06/25.
 //
 
 import Foundation
@@ -126,7 +125,10 @@ struct MapViewComponent: UIViewRepresentable {
             if annotationView == nil {
                 annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 annotationView?.canShowCallout = true
-
+                
+                // Extract temperature from annotation title
+                let temperature = extractTemperature(from: annotation.title ?? "") ?? 0
+                
                 // Customize appearance: larger, rounded label-style image
                 let label = UILabel()
                 label.text = annotation.title ?? ""
@@ -137,6 +139,7 @@ struct MapViewComponent: UIViewRepresentable {
                 label.layer.cornerRadius = 10
                 label.layer.masksToBounds = true
                 label.frame = CGRect(x: 0, y: 0, width: 80, height: 30)
+                label.backgroundColor = backgroundColor(for: temperature)
 
                 // Convert UILabel to image
                 UIGraphicsBeginImageContextWithOptions(label.bounds.size, false, 0.0)
@@ -152,5 +155,29 @@ struct MapViewComponent: UIViewRepresentable {
             return annotationView
         }
 
+    }
+    
+    static func extractTemperature(from title: String?) -> Int? {
+        guard let title = title else { return nil }
+        let pattern = "\\d+"
+        if let match = title.range(of: pattern, options: .regularExpression) {
+            return Int(title[match])
+        }
+        return nil
+    }
+
+    static func backgroundColor(for temperature: Int) -> UIColor {
+        switch temperature {
+        case ..<0:
+            return UIColor.systemTeal
+        case 0..<15:
+            return UIColor.systemBlue
+        case 15..<30:
+            return UIColor.systemGreen
+        case 30..<38:
+            return UIColor.systemOrange
+        default:
+            return UIColor.systemRed
+        }
     }
 }

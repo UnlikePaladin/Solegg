@@ -2,7 +2,6 @@
 //  TemperatureViewer.swift
 //  Solegg
 //
-//  Created by Ernesto Garza Berrueto on 07/06/25.
 //
 
 import Foundation
@@ -15,10 +14,15 @@ class TemperatureFetcher: ObservableObject {
 
     func fetchTemperature(apiKey: String, location: CLLocationCoordinate2D) {
         if let saved = UserDefaults.standard.object(forKey: userDefaultsKey) as? [String: Any],
-           let timestamp = saved["timestamp"] as? TimeInterval,
-           let cached = saved["temperature"] as? Double,
-           Date().timeIntervalSince1970 - timestamp < 600 {
-            self.temperature = cached
+            let timestamp = saved["timestamp"] as? TimeInterval,
+            let cached = saved["temperature"] as? Double,
+            let lat = saved["lat"] as? Double,
+            let lon = saved["lon"] as? Double,
+            abs(lat - location.latitude) < 0.01,
+            abs(lon - location.longitude) < 0.01,
+           
+            Date().timeIntervalSince1970 - timestamp < 600 {
+                self.temperature = cached
             return
         }
 
@@ -38,7 +42,9 @@ class TemperatureFetcher: ObservableObject {
                     self.temperature = temp
                     UserDefaults.standard.set([
                         "temperature": temp,
-                        "timestamp": Date().timeIntervalSince1970
+                        "timestamp": Date().timeIntervalSince1970,
+                        "lat": location.latitude,
+                        "lon": location.longitude
                     ], forKey: self.userDefaultsKey)
                 }
             }

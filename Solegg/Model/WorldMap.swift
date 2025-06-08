@@ -2,7 +2,6 @@
 //  WorldMap.swift
 //  Solegg
 //
-//  Created by Ernesto Garza Berrueto on 07/06/25.
 //
 
 // actual source for all this map stuff

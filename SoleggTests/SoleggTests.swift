@@ -2,7 +2,6 @@
 //  SoleggTests.swift
 //  SoleggTests
 //
-//  Created by Ernesto Garza Berrueto on 07/06/25.
 //
 
 import Testing
