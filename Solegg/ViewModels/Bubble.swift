@@ -16,7 +16,7 @@ struct Bubble: View {
                 showModal.toggle()
             }) {
                 VStack {
-                    Image(systemName: goal.content.imageName)
+                    Image(goal.content.imageName)
                         .resizable().aspectRatio(contentMode: .fit)
                         .padding(CGFloat(20))
                         .background(goal.state ? Color.green : Color.blue.opacity(0.3))

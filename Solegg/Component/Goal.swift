@@ -14,7 +14,7 @@ struct Modal: Identifiable{
     var desc: String
     var exp: Int
     var image: Image {
-            Image(imageName)
+        Image(imageName)
     }
 }
 
