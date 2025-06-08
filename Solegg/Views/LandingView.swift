@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct LandingView: View {
+    @State private var searchText: String = ""
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        NavigationStack {
+            
+            Image("EmojiSmile").resizable().aspectRatio(contentMode: .fit)
+                .padding(CGFloat(20))
+        }.padding()
+            .searchable(text: $searchText, placement: SearchFieldPlacement.toolbar)
     }
 }
 
