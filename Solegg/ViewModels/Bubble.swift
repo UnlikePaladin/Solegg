@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct Bubble: View {
-    let goal: Goal
-    @State var showModal = false
+    @Binding var goal: Goal
+    @State private var showModal = false
 
     var body: some View {
         VStack {
@@ -19,7 +19,7 @@ struct Bubble: View {
                 VStack {
                     Image(systemName: goal.content.imageName)
                         .resizable()
-                        .frame(width: 50, height: 50)
+                        .frame(width: 30, height: 30)
                         .padding()
                         .background(goal.state ? Color.green : Color.blue.opacity(0.3))
                         .clipShape(Circle())
@@ -32,7 +32,13 @@ struct Bubble: View {
                 }
             }
             .sheet(isPresented: $showModal) {
-                GoalModalView(modal: goal.content)
+                GoalModalView(
+                    modal: goal.content,
+                    onDone: {
+                        goal.state = true
+                        showModal = false
+                    }
+                )
             }
         }
     }

@@ -8,6 +8,7 @@ import SwiftUI
 
 struct GoalModalView: View {
     let modal: Modal
+    let onDone: () -> Void
 
     var body: some View {
         VStack(spacing: 20) {
@@ -27,6 +28,14 @@ struct GoalModalView: View {
             Text("🔥 \(modal.exp) EXP")
                 .font(.headline)
                 .foregroundColor(.orange)
+            
+            Button("Done") {
+                onDone()
+            }
+            .padding()
+            .background(Color.green)
+            .foregroundColor(.white)
+            .clipShape(Capsule())
 
             Spacer()
         }
